@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2026-11-16T00:00:00.000Z" agent="OpenAI" version="22.1.0" type="device">
+  <diagram id="supervision" name="Arquitectura de supervision">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="valve" value="Válvula de flotador mecánico&#10;N, E1, E2a, E2b, E3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF9F7;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="50" y="140" width="280" height="90"/>
+        </mxCell>
+        <mxCell id="tank" value="Tanque 250 L&#10;Banco UTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF9F7;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="50" y="300" width="280" height="88"/>
+        </mxCell>
+        <mxCell id="sensor" value="Sensor JSN-SR04T&#10;Medición de distancia" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF3F6;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="405" y="300" width="235" height="88"/>
+        </mxCell>
+        <mxCell id="esp" value="ESP32&#10;Umbrales y confirmación" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF3F6;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="725" y="300" width="235" height="88"/>
+        </mxCell>
+        <mxCell id="sound" value="Buzzer sonoro&#10;Alerta local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E7F8F3;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1050" y="160" width="250" height="88"/>
+        </mxCell>
+        <mxCell id="iot" value="Wi-Fi / plataforma IoT&#10;Notificación al celular" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF3F6;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1050" y="350" width="250" height="88"/>
+        </mxCell>
+        <mxCell id="valid" value="Referencia y video&#10;Validación / datasets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F7;strokeColor=#1468A5;fontSize=18;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="550" width="330" height="90"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="valve" target="tank">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="tank" target="sensor">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="sensor" target="esp">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="esp" target="sound">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="esp" target="iot">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="tank" target="valid">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1468A5;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="esp" target="valid">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

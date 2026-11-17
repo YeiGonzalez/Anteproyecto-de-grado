@@ -1,0 +1,19 @@
+flowchart TD
+    INICIO([Inicio / arranque]) --> CONFIG[Leer parámetros: Hs, umbrales, confirmación, Wi-Fi]
+    CONFIG --> MEDIR[Medir distancia d del JSN-SR04T]
+    MEDIR --> VAL{¿Lectura válida?}
+    VAL -- No --> ERROR[Registrar lectura no válida\nTratamiento por definir en firmware]
+    ERROR --> MEDIR
+    VAL -- Sí --> CALC[Calcular h = Hs - d\nAplicar filtrado definido]
+    CALC --> ALTO{¿h supera umbral alto?}
+    ALTO -- Sí --> CONFALTO[Verificar persistencia durante\ntiempo de confirmación]
+    ALTO -- No --> BAJO{¿h cae bajo umbral bajo?}
+    BAJO -- Sí --> CONFBAJO[Verificar persistencia durante\ntiempo de confirmación]
+    BAJO -- No --> NORMAL[Registrar condición normal]
+    CONFALTO --> AVISO[Alarma sonora + evento alto]
+    CONFBAJO --> AVISO2[Alarma sonora + evento bajo]
+    AVISO --> IOT[Intentar envío IoT con marca de tiempo]
+    AVISO2 --> IOT
+    IOT --> REC[Registrar entrega / pérdida / duplicación]
+    NORMAL --> MEDIR
+    REC --> MEDIR
