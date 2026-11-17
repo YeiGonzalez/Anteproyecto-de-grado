@@ -1,0 +1,5 @@
+﻿Objetivo,Archivo / Producto,Evidencia,Criterio previsto
+OE1,A-01_Arquitectura; L-01_Logica_supervision,Arquitectura y lógica documentadas,Umbrales y tiempos sustentados por línea base y escenarios
+OE2,E-01_Conexion_electrica; M-01_Implantacion_banco; M-02_Soporte_sensor,"Diagrama de pines, distribución y CAD",Montaje revisado; error de medición <2 cm tras validar
+OE3,A-01_Arquitectura; L-01_Logica_supervision,Ruta IoT y marcas de tiempo previstas,"Eventos enlazados con recepción, pérdida o duplicación"
+OE4,L-01_Logica_supervision,Eventos aptos para matriz de confusión y tiempos,≥95 % aciertos con protocolo; validar por condición

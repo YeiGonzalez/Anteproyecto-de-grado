@@ -1,0 +1,21 @@
+digraph deteccion {
+  graph [rankdir=TB, bgcolor="#F8FAFC", pad="0.28", nodesep="0.35", ranksep="0.40", fontname="Arial", labelloc="t", label="L-01  Lógica de supervisión y notificación (conceptual)", fontsize=22, fontcolor="#102840"];
+  node [shape=box, style="rounded,filled", fillcolor="#EAF3F6", color="#1468A5", fontname="Arial", fontsize=14, penwidth=1.5, margin="0.21,0.11"];
+  edge [color="#1468A5", arrowsize=0.8, fontname="Arial", fontsize=12];
+  inicio [label="Iniciar y cargar parámetros\nHs, umbrales hA/hB, t_confirmación"];
+  lectura [label="Medir d con JSN-SR04T\nCalcular h = Hs - d"];
+  calidad [label="¿Lectura válida?", shape=diamond, fillcolor="#FFF5E9",color="#B86A1B"];
+  invalido [label="Registrar lectura inválida\nNo atribuir automáticamente a la válvula",fillcolor="#F7ECE9",color="#B4463E"];
+  umbral [label="¿h > hA o h < hB?",shape=diamond, fillcolor="#FFF5E9",color="#B86A1B"];
+  normal [label="Mantener / restablecer estado normal\nGuardar registro"];
+  confirma [label="¿Anomalía persiste por t_confirmación?",shape=diamond, fillcolor="#FFF5E9",color="#B86A1B"];
+  evento [label="Registrar evento ALTO o BAJO\nMarcar t_cruce y t_alarma",fillcolor="#E8F7F1",color="#24866E"];
+  sonido [label="Activar alarma sonora local",fillcolor="#E8F7F1",color="#24866E"];
+  iot [label="Enviar evento por Wi-Fi/IoT\nConservar ID y t_envío"];
+  recibir [label="Comprobar recepción y t_recepción\nClasificar aviso: recibido/perdido/duplicado"];
+  eval [label="Comparar con referencia y calcular métricas\nVP, VN, FP, FN, t_det, t_notif"];
+  inicio->lectura;lectura->calidad;calidad->invalido[label="No"];invalido->lectura;calidad->umbral[label="Sí"];
+  umbral->normal[label="No"];normal->lectura;
+  umbral->confirma[label="Sí"];confirma->lectura[label="No"];confirma->evento[label="Sí"];
+  evento->sonido->iot->recibir->eval->lectura;
+}

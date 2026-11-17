@@ -1,0 +1,13 @@
+﻿Ref,Componente,Cantidad,Especificación provisional,Estado / validación
+U1,ESP32 DevKit con Wi-Fi,1,"DevKit, 5 V por USB; GPIO 3,3 V",Confirmar modelo real y pinout
+U2,JSN-SR04T con sonda impermeable,1,Modo TRIG/ECHO; 5 V nominal,"Confirmar versión, sonda y zona ciega"
+BZ1,Buzzer activo 5 V,1,Avisador sonoro,Elegir modelo y consumo
+Q1,Transistor NPN,1,"2N2222/PN2222, propuesto",Verificar capacidad para BZ1
+R1,Resistencia serie de ECHO,1,"10 kΩ, 1/4 W, 5 %",Verificar ECHO del U2 en banco
+R2,Resistencia a GND en ECHO,1,"15 kΩ, 1/4 W, 5 %",Verificar nivel lógico en GPIO
+Rb,Resistencia de base de Q1,1,"1 kΩ, 1/4 W, 5 %",Calcular según corriente BZ1
+D1,Diodo de protección opcional,0-1,Solo si BZ1 es inductivo,Depende del actuador
+PS1,Fuente USB aislada 5 V,1,"Certificada, capacidad según carga",Validar corriente y protección
+ENC,Gabinete para electrónica,1,"Fuera de salpicaduras, sellado adecuado",Medir componentes y ubicación
+M1,Placa adaptadora del transductor,1,"90×65×5 mm, Ø23 mm preliminar",No fabricar sin confirmar cotas
+F1,Tornillería placa adaptadora,4,Para ranuras 12×5 mm,Confirmar fijación al banco
