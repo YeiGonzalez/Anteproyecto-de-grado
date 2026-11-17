@@ -1,5 +1,0 @@
-Paquete de planos, modelos y diseños del anteproyecto de Ingeniería Mecatrónica UTP.
-
-Abra 04_Documentacion/README.md: índice, supuestos, fuentes y advertencias.
-Version R0. Archivos SVG, PDF, DXF, STEP, STL, SCAD, DRAWIO, DOT y CSV.
-IMPORTANTE: ninguna geometría ni conexión es definitiva sin medir y verificar hardware real.
